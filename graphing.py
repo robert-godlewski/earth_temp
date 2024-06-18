@@ -9,14 +9,26 @@ import re
 # Actually gathering the data
 path = './data.csv'
 file = open(file=path,mode='r')
-num = 0
+data = []
+# num = 0
 for line in file:
     # Only need the numbered data here instead of title information
     if re.findall('^[0-9]',line):
-        print(type(line))
-        print(line)
-        # raw_info = line.split(',')
-        # print(type(raw_info))
+        # print(type(line))
+        # print(line)
+        raw_info = line.split(',')
         # print(raw_info)
-        num += 1
-print(f'Found {num} lines of information.')
+        info = {}
+        # date is formated as YYYYMM
+        info['date'] = int(raw_info[0])
+        # anomaly temperature in Celcius
+        anomaly_raw = raw_info[1].split('\n')
+        info['anomaly_temp'] = float(anomaly_raw[0])
+        # print(info)
+        # print(f'Fahrenheit Temperature Anomaly = {(info["anomaly_temp"]*(9/5))+32}')
+        # num += 1
+        data.append(info)
+# print(f'Found {num} lines of information.')
+print(data)
+# Calculation from Celcius to Fahrenheit is:
+# F = (C * (9/5)) + 32
