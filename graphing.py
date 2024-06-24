@@ -6,6 +6,11 @@ import re
 # print(a)
 # print(a.shape)
 
+# try:
+#     temp_data = np.load('temp_data.npy')
+# except:
+#     temp_data = None
+
 # Actually gathering the data
 path = './data.csv'
 file = open(file=path,mode='r')
@@ -32,3 +37,5 @@ for line in file:
 print(data)
 # Calculation from Celcius to Fahrenheit is:
 # F = (C * (9/5)) + 32
+
+# np.save('temp_data',data)
