@@ -1,7 +1,9 @@
 # Might need these later on
 # import re
-# import numpy as np
+import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
+
 
 # Testing out numpy
 # a = np.array([[1,2,3],[4,5,6]])
@@ -11,29 +13,38 @@ import pandas as pd
 # Grabbing the data from csv file
 # info = pd.read_csv('data.csv', header=4)
 data = pd.read_csv('data.csv', header=4).values
-# print(type(data))
-# print(data)
+print(type(data))
+print(data)
 
 # Figuring out what each of the information means:
-
-# # data[r][0] = Date in YYYYMM.0 format for r
-# print(type(data[0][0]))
-# print(data[0][0])
-# # This will result the format to be YYYY.MM for each r
-# # could help split it out year and month from each other to label the x axis for dates.
-# print(data[0][0]/100)
-
-# # data[r][1] = Anomaly Temperature in Celcius at the date in r
-# print(type(data[0][1]))
-# print(data[0][1])
+# Date
+# data[r][0] = Date in YYYYMM.0 format for r
+print(type(data[0][0]))
+print(data[0][0])
+# This will result the format to be YYYY.MM for each r
+# could help split it out year and month from each other to label the x axis for dates.
+print(data[0][0]/100)
+# Anomaly Temperature
+# data[r][1] = Anomaly Temperature in Celcius at the date in r
+print(type(data[0][1]))
+print(data[0][1])
 
 # Testing out Pandas DataFrame class
 df = pd.DataFrame(data)
 print(type(df))
 print(df)
 # df[c][r]
-# print(type(df[0][0]))
-# print(df[0][0],df[1][0])
+print(type(df[0][0]))
+print(df[0][0],df[1][0])
+
+# Testing out Matplotlib
+x = np.linspace(0,2*np.pi,100)
+y = np.cos(x)
+
+fig,ax = plt.subplots()
+ax.plot(x,y,color='blue')
+
+plt.show()
 
 # Gathering the data - OLD - Need below to help figure out how to make a hash to save the data
 # path = './data.csv'
