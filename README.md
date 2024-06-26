@@ -8,7 +8,7 @@ Temperature anomaly referes to prior temperatures based off of a long-term avera
 # Tools Using
 * [Python](https://www.python.org/)
 * [NumPy](https://numpy.org/) - Need for [Saving and Loading data](https://numpy.org/doc/stable/user/absolute_beginners.html#how-to-save-and-load-numpy-objects)
-* Pandas - Need for [Importing and Exporting csv](https://numpy.org/doc/stable/user/absolute_beginners.html#importing-and-exporting-a-csv)
+* [Pandas](https://pandas.pydata.org/) - Need for [Importing and Exporting csv](https://numpy.org/doc/stable/user/absolute_beginners.html#importing-and-exporting-a-csv)
 * Matplotlib - Need for [Plotting the Arrays](https://numpy.org/doc/stable/user/absolute_beginners.html#plotting-arrays-with-matplotlib)
 
 # References
@@ -16,3 +16,4 @@ Temperature anomaly referes to prior temperatures based off of a long-term avera
 * https://www.ncei.noaa.gov/access/monitoring/global-temperature-anomalies#:~:text=The%20term%20temperature%20anomaly%20means,cooler%20than%20the%20reference%20value.
 * https://www.w3schools.com/python/python_regex.asp
 * https://numpy.org/doc/stable/user/absolute_beginners.html
+* https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html
