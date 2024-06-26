@@ -1,23 +1,41 @@
-import re
-# Testing out numpy
+# Might need these later on
+# import re
 # import numpy as np
+import pandas as pd
 
+# Testing out numpy
 # a = np.array([[1,2,3],[4,5,6]])
 # print(a)
 # print(a.shape)
-# Testing out pandas
-import pandas as pd
 
+# Grabbing the data from csv file
 # info = pd.read_csv('data.csv', header=4)
-info = pd.read_csv('data.csv', header=4).values
-# print(info)
-df = pd.DataFrame(info)
-# print(type(df))
-print(df)
-# df[c - The date in YYYYMM.0][r - Celcius Temperature Anomaly]
-print(df[0][0],df[1][0])
+data = pd.read_csv('data.csv', header=4).values
+# print(type(data))
+# print(data)
 
-# Actually gathering the data
+# Figuring out what each of the information means:
+
+# # data[r][0] = Date in YYYYMM.0 format for r
+# print(type(data[0][0]))
+# print(data[0][0])
+# # This will result the format to be YYYY.MM for each r
+# # could help split it out year and month from each other to label the x axis for dates.
+# print(data[0][0]/100)
+
+# # data[r][1] = Anomaly Temperature in Celcius at the date in r
+# print(type(data[0][1]))
+# print(data[0][1])
+
+# Testing out Pandas DataFrame class
+df = pd.DataFrame(data)
+print(type(df))
+print(df)
+# df[c][r]
+# print(type(df[0][0]))
+# print(df[0][0],df[1][0])
+
+# Gathering the data - OLD - Need below to help figure out how to make a hash to save the data
 # path = './data.csv'
 # file = open(file=path,mode='r')
 # data = []
