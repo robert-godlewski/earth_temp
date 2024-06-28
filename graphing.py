@@ -5,46 +5,63 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-# Testing out numpy
-# a = np.array([[1,2,3],[4,5,6]])
-# print(a)
-# print(a.shape)
-
 # Grabbing the data from csv file
-# info = pd.read_csv('data.csv', header=4)
 data = pd.read_csv('data.csv', header=4).values
-print(type(data))
-print(data)
+# print(type(data))
+# print(data)
 
 # Figuring out what each of the information means:
+# The size and shape of the array
+# print(f'Shape of data = {data.shape}')
+# print(f'Number of data information = {data.size}')
+# print(f'Number of data points = {data.shape[0]}')
 # Date
-# data[r][0] = Date in YYYYMM.0 format for r
-print(type(data[0][0]))
-print(data[0][0])
-# This will result the format to be YYYY.MM for each r
-# could help split it out year and month from each other to label the x axis for dates.
-print(data[0][0]/100)
+# print(type(data[0][0]))
+# print(f'Date in YYYYMM.0 format = {data[0][0]}')
+# print(f'Date in YYYY.MM format = {data[0][0]/100}')
 # Anomaly Temperature
-# data[r][1] = Anomaly Temperature in Celcius at the date in r
-print(type(data[0][1]))
-print(data[0][1])
+# print(type(data[0][1]))
+# print(f'Anomaly Temperature in Celcius = {data[0][1]}')
+# print(f'Anomaly Temperature in Fahrenheit = {(data[0][1]*(9/5))+32}')
 
 # Testing out Pandas DataFrame class
-df = pd.DataFrame(data)
-print(type(df))
-print(df)
-# df[c][r]
-print(type(df[0][0]))
-print(df[0][0],df[1][0])
+# df = pd.DataFrame(data)
+# print(type(df))
+# print(df)
+# # df[c][r]
+# print(type(df[0][0]))
+# print(df[0][0],df[1][0])
 
-# Testing out Matplotlib
-x = np.linspace(0,2*np.pi,100)
-y = np.cos(x)
+# Setting up axis to graph
+x = np.empty(data.shape[0])
+y = np.empty(data.shape[0])
 
+for i in range(data.shape[0]):
+    x[i] = data[i][0]
+    y[i] = data[i][1]
+
+# print(x)
+# print(y)
+
+# Graphing
+plt.style.use('bmh')
 fig,ax = plt.subplots()
-ax.plot(x,y,color='blue')
+# ax.plot(x,y,color='blue')
+ax.scatter(x,y,s=15,color='black')
+ax.set_title('Global Temperature', fontsize=24)
+ax.set_xlabel('Date (YYYYMM)', fontsize=12)
+ax.set_ylabel('Anomaly Temperature in Celcius', fontsize=12)
+
+# Specific points - Add in more mathematical calulations than these:
+# Cold average?
+ax.axhline(y=-0.5, color='blue')
+# Warm average?
+ax.axhline(y=0.5, color='red')
+# 1979 is when it starts to appear with global warming
+ax.axvline(x=197900, color='green')
 
 plt.show()
+# plt.savefig('global_temperature.png')
 
 # Gathering the data - OLD - Need below to help figure out how to make a hash to save the data
 # path = './data.csv'
