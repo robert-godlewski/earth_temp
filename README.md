@@ -20,3 +20,6 @@ Temperature anomaly referes to prior temperatures based off of a long-term avera
 * https://matplotlib.org/stable/api/index
 * https://matplotlib.org/stable/users/explain/quick_start.html
 * https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.axhline.html
+* https://numpy.org/doc/stable/reference/generated/numpy.average.html
+* https://numpy.org/doc/stable/reference/generated/numpy.max.html
+* https://numpy.org/doc/stable/reference/generated/numpy.min.html
