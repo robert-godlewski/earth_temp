@@ -3,12 +3,13 @@ import numpy as np # type: ignore
 import matplotlib.pyplot as plt # type: ignore
 
 
+# Calculation from Celcius to Fahrenheit is: F = (C * (9/5)) + 32
 def celciusToFahrenheit(temp: float) -> float:
     return (temp*(9/5))+32
 
 def temperatureMessage(msg: str, temp: float) -> None:
     temp_f = celciusToFahrenheit(temp)
-    print(f'{msg} = {temp} Celcius or {temp_f} Fahrenheit.')
+    return f'{msg} = {round(temp,2)} Celcius or {round(temp_f,0)} Fahrenheit.'
 
 # Grabbing the data from a saved numpy array otherwise will not work
 try:
@@ -46,35 +47,36 @@ try:
     # plt.show()
     # plt.savefig('global_temperature_raw.png')
 
-    # Specific points - Need to add in labels to these
-    # Calculation from Celcius to Fahrenheit is: F = (C * (9/5)) + 32
-    ax.axhline(y=0, color='grey')
+    # Specific points
+    ax.axhline(y=0, color='red',label='Current Temp. Baseline at 0.')
     # Last normal temperature before the appearance of global warming
-    print(f'Last Normal Temperature date is {last_norm_date["month"]} of {last_norm_date["year"]}')
-    ax.axvline(x=last_norm_date_raw, color='yellow')
+    date_msg = f'Last Normal Temperature Date is {last_norm_date["month"]} of {last_norm_date["year"]}.'
+    ax.axvline(x=last_norm_date_raw, color='yellow', label=date_msg)
     # Average before the last normal temp
     norm_ave = np.average(y,weights=(x<last_norm_date_raw))
-    temperatureMessage('Normal average temp before global warming effects',norm_ave)
-    ax.axhline(y=norm_ave, color='green')
+    # temperatureMessage('Normal average temp before global warming effects',norm_ave)
+    ax.axhline(y=norm_ave, color='blue', label=f'Baseline Temp. before {last_norm_date["year"]} is at {round(norm_ave,2)}.')
+    # Below is not needed for now
     # Hottest Temp
-    max_temp = np.max(y)
-    temperatureMessage('Hottest Temperature',max_temp)
-    ax.axhline(y=max_temp, color='red')
+    # max_temp = np.max(y)
+    # temperatureMessage('Hottest Temperature',max_temp)
+    # ax.axhline(y=max_temp, color='red')
     # Coldest Temp
-    min_temp = np.min(y)
-    temperatureMessage('Coldest Temperature',min_temp)
-    ax.axhline(y=min_temp, color='purple')
+    # min_temp = np.min(y)
+    # temperatureMessage('Coldest Temperature',min_temp)
+    # ax.axhline(y=min_temp, color='purple')
     # Hot Average
-    actual_hot_ave = np.average(y,weights=(y>0))
-    temperatureMessage('Average Warm Temperature',actual_hot_ave)
-    ax.axhline(y=actual_hot_ave, color='orange')
+    # actual_hot_ave = np.average(y,weights=(y>0))
+    # temperatureMessage('Average Warm Temperature',actual_hot_ave)
+    # ax.axhline(y=actual_hot_ave, color='orange')
     # Cold Average
-    actual_cold_ave = np.average(y,weights=(y<0))
-    temperatureMessage('Average Cool Temperature',actual_cold_ave)
-    ax.axhline(y=actual_cold_ave, color='blue')
+    # actual_cold_ave = np.average(y,weights=(y<0))
+    # temperatureMessage('Average Cool Temperature',actual_cold_ave)
+    # ax.axhline(y=actual_cold_ave, color='blue')
+    ax.legend(loc='upper left', prop={'size':6})
 
+    plt.savefig('global_temperature.png')
     plt.show()
-    # plt.savefig('global_temperature.png')
 
 except:
     print('Not able to actually graph.  Try uploading first.')
