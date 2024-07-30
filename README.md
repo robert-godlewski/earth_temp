@@ -3,6 +3,10 @@ This is a graph of the Global Temperature Average Anomaly per month since 1850 t
 
 Temperature anomaly referes to prior temperatures based off of a long-term average.  Positive anomalies indicates warmer temperatures and negative anomalies indicates cooler temperatures based off of the long term average.
 
+<img src="global_temperature.png">
+
+As shown by the graph above the affects of global warming due to natural gasses stuck in the atmosphere were noticable world wide since 1976.  The trend after 1976 looks like the temperature of earth keeps warming up by roughly a degree for the past 50 years.  Also we can see that the baseline is warming up as well by 0.13 degrees due to the drastic change within the last 50 years.
+
 **Data Link**: Can use the [NOAA website](https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/global/time-series/globe/land_ocean/1/0/1850-2024) to grab the data reports of temperature anomaly changes for each month since 1850 in Celsius.
 
 # Tools Using
@@ -23,3 +27,6 @@ Temperature anomaly referes to prior temperatures based off of a long-term avera
 * https://numpy.org/doc/stable/reference/generated/numpy.average.html
 * https://numpy.org/doc/stable/reference/generated/numpy.max.html
 * https://numpy.org/doc/stable/reference/generated/numpy.min.html
+* https://www.w3schools.com/python/ref_func_round.asp
+* https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html
+* https://stackoverflow.com/questions/7125009/how-to-change-legend-fontsize-with-matplotlib-pyplot
