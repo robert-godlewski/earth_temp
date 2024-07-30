@@ -5,6 +5,8 @@ Temperature anomaly referes to prior temperatures based off of a long-term avera
 
 <img src="global_temperature.png">
 
+As shown by the graph above the affects of global warming due to natural gasses stuck in the atmosphere were noticable world wide since 1976.  The trend after 1976 looks like the temperature of the earth keeps warming up by roughly a degree for the past 50 years.  Also we can see that the baseline is warming up as well by 0.13 degrees due to the drastic change of temperatures.
+
 **Data Link**: Can use the [NOAA website](https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/global/time-series/globe/land_ocean/1/0/1850-2024) to grab the data reports of temperature anomaly changes for each month since 1850 in Celsius.
 
 # Tools Using
