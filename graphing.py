@@ -3,6 +3,13 @@ import numpy as np # type: ignore
 import matplotlib.pyplot as plt # type: ignore
 
 
+def celciusToFahrenheit(temp: float) -> float:
+    return (temp*(9/5))+32
+
+def temperatureMessage(msg: str, temp: float) -> None:
+    temp_f = celciusToFahrenheit(temp)
+    print(f'{msg} = {temp} Celcius or {temp_f} Fahrenheit.')
+
 # Grabbing the data from a saved numpy array otherwise will not work
 try:
     data = np.load('temp_data.npy')
@@ -47,23 +54,23 @@ try:
     ax.axvline(x=last_norm_date_raw, color='yellow')
     # Average before the last normal temp
     norm_ave = np.average(y,weights=(x<last_norm_date_raw))
-    print(f'Normal average temp before global warming effects = {norm_ave} Celcius or {(norm_ave*(9/5))+32} Fahrenheit')
+    temperatureMessage('Normal average temp before global warming effects',norm_ave)
     ax.axhline(y=norm_ave, color='green')
     # Hottest Temp
     max_temp = np.max(y)
-    print(f'Hottest Temperature = {max_temp} Celcius or {(max_temp*(9/5))+32} Fahrenheit')
+    temperatureMessage('Hottest Temperature',max_temp)
     ax.axhline(y=max_temp, color='red')
     # Coldest Temp
     min_temp = np.min(y)
-    print(f'Coldest Temperature = {min_temp} Celcius or {(min_temp*(9/5))+32} Fahrenheit')
+    temperatureMessage('Coldest Temperature',min_temp)
     ax.axhline(y=min_temp, color='purple')
     # Hot Average
     actual_hot_ave = np.average(y,weights=(y>0))
-    print(f'Average Warm Temperature = {actual_hot_ave} Celcius or {(actual_hot_ave*(9/5))+32} Fahrenheit')
+    temperatureMessage('Average Warm Temperature',actual_hot_ave)
     ax.axhline(y=actual_hot_ave, color='orange')
     # Cold Average
     actual_cold_ave = np.average(y,weights=(y<0))
-    print(f'Average Cool Temperature = {actual_cold_ave} Celcius or {(actual_cold_ave*(9/5))+32} Fahrenheit')
+    temperatureMessage('Average Cool Temperature',actual_cold_ave)
     ax.axhline(y=actual_cold_ave, color='blue')
 
     plt.show()
