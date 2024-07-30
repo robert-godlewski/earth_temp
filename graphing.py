@@ -7,10 +7,6 @@ import matplotlib.pyplot as plt # type: ignore
 def celciusToFahrenheit(temp: float) -> float:
     return (temp*(9/5))+32
 
-def temperatureMessage(msg: str, temp: float) -> None:
-    temp_f = celciusToFahrenheit(temp)
-    return f'{msg} = {round(temp,2)} Celcius or {round(temp_f,0)} Fahrenheit.'
-
 # Grabbing the data from a saved numpy array otherwise will not work
 try:
     data = np.load('temp_data.npy')
@@ -59,19 +55,15 @@ try:
     # Below is not needed for now
     # Hottest Temp
     # max_temp = np.max(y)
-    # temperatureMessage('Hottest Temperature',max_temp)
     # ax.axhline(y=max_temp, color='red')
     # Coldest Temp
     # min_temp = np.min(y)
-    # temperatureMessage('Coldest Temperature',min_temp)
     # ax.axhline(y=min_temp, color='purple')
     # Hot Average
     # actual_hot_ave = np.average(y,weights=(y>0))
-    # temperatureMessage('Average Warm Temperature',actual_hot_ave)
     # ax.axhline(y=actual_hot_ave, color='orange')
     # Cold Average
     # actual_cold_ave = np.average(y,weights=(y<0))
-    # temperatureMessage('Average Cool Temperature',actual_cold_ave)
     # ax.axhline(y=actual_cold_ave, color='blue')
     ax.legend(loc='upper left', prop={'size':6})
 
